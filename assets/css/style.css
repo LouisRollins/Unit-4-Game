@@ -1,0 +1,23 @@
+body, html{
+    height: 100%;
+    background: black;
+}
+
+@font-face{
+    font-family: 'mk-text';
+    src: url("./MKX\ Title.ttf");
+}
+
+h1{
+    font-family: 'mk-text';
+    text-align: center;
+    font-size: 72px;
+    color: white;
+}
+
+.bg{
+    background-image: url("../images/mk-bg.jpg");
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+}
