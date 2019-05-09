@@ -15,9 +15,45 @@ h1{
     color: white;
 }
 
+h2{
+    font-family: 'mk-text';
+    font-size: 42px;
+    color: white;
+}
+
 .bg{
     background-image: url("../images/mk-bg.jpg");
     height: 100%;
     background-position: center;
     background-size: cover;
+}
+
+.scorpion{
+    background-image: url("../images/mk-scorpion.jpg");
+}
+
+.sub-zero{
+    background-image: url("../images/mk-sub-zero.jpg");
+}
+
+.erron-black{
+    background-image: url("../images/mk-erron-black.jpg");
+}
+
+.noob-saibot{
+    background-image: url("../images/mk-noob-saibot.jpg")
+}
+
+.character{
+    height: 125px;
+    width: 250px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    background-size: cover;
+}
+
+.hp{
+    font-family: 'mk-text';
+    color: white;
+    font-size: 24px;
 }
