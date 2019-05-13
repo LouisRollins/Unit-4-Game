@@ -1,5 +1,46 @@
+var $character = $(".character")
+var player = "";
+var enemy = "";
 
+//for each character clicked on..
+$character.each(function(index, character) {
+    var $element = $(character)
+    $element.on('click', function() {
+        
+        //move all opponents not clicked on under opponent
+        var $opponents = $character.not(($(this)))
+        $opponents.insertAfter($("#opponent"))
+        var player = $(this)
+        $element.off('click')
 
-$(".character").on("click", function(){
-    var playerCharacter = 
+        $opponents.each(function(index, opponent) {
+            var $opponent = $(opponent)
+            $opponent.off('click')
+
+        })
+
+        //hide unchosen fighters and move dueling fighters under match
+        $opponents.each(function(index, opponent) {
+            var $opponent = $(opponent)
+            $opponent.on('click', function(){
+                var $hidden = $opponents.not(($(this)))
+              $hidden.hide()
+
+            var enemy = ($(this))
+              player.insertBefore($('#versus'))
+                enemy.insertAfter($('#versus'))
+        
+            })
+        })
+      
+        })
+    
+    var $fightButton = $("#fight-button")
+    
+    $fightButton.on('click', function(){
+        $hp = $(".hp")
+        $hp++
+
+    })
 })
+
