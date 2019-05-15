@@ -1,6 +1,10 @@
 var $character = $(".character")
 var player = "";
 var enemy = "";
+var $fightLog = $("#fight-log")
+var playerHp = "";
+var enemyHit = ""
+var playerHit = 5;
 
 //for each character clicked on..
 $character.each(function (index, character) {
@@ -24,28 +28,36 @@ $character.each(function (index, character) {
         $opponents.each(function (index, opponent) {
             var $opponent = $(opponent)
             $opponent.on('click', function () {
-                var $hidden = $opponents.not(($(this)))
-                $hidden.hide()
 
                 enemy = ($(this))
                 player.insertBefore($('#versus'))
                 enemy.insertAfter($('#versus'))
+
+                $opponents.off('click')
 
             })
 
 
         })
         var $fightButton = $("#fight-button")
-        $fightButton.on('click', function () {
-            $hp = $(".hp")
-            console.log(player)
-            console.log(enemy);
-            var playerHp = $(player).find("p").text()
-            var newHp = parseInt(playerHp, 10) + 500 ;
-            
-            console.log(newHp)
-            $(playerHp).append($(newHp).text())
+        var fightClick = $fightButton.on('click', function () {
+            enemyHit = 7
+            playerHp = $(player).find("p").text()
+            enemyHp = $(enemy).find("p").text()
+            var newHp = parseInt(playerHp, 10) - enemyHit ;
+            var enemyNewHp = parseInt(enemyHp, 10) - playerHit;
+            $(player).find("p").replaceWith("<p>" + newHp + "</p>")
+            $(enemy).find("p").replaceWith("<p>" + enemyNewHp + "</p>")
+            $fightLog.replaceWith("<p>You hit for " + playerHit + " HP and lost " + enemyHit + " HP!</p>")
+
+
+        
+            if (playerHp < 1){
+                alert("You lose")
+                history.go(0)
+            }
         })
+
 
 
     })
